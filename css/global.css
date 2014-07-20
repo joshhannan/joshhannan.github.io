@@ -1,57 +1,15 @@
 /**===========================================================================
-	VARIABLES
-===========================================================================**/
-/* Blues */
-.blue-0 {
-  color: #2f4073; }
-
-.blue-1 {
-  color: #7986ac; }
-
-.blue-2 {
-  color: #50608f; }
-
-.blue-3 {
-  color: #162656; }
-
-.blue-4 {
-  color: #061339; }
-
-/*  Yellows */
-.yellow-0 {
-  color: #aa9839; }
-
-.yellow-1 {
-  color: #fff2aa; }
-
-.yellow-2 {
-  color: #d4c46a; }
-
-.yellow-3 {
-  color: #806f15; }
-
-.yellow-4 {
-  color: #554800; }
-
-/* Tan/orange */
-.orange-0 {
-  color: #aa6f39; }
-
-.orange-1 {
-  color: #ffd3aa; }
-
-.orange-2 {
-  color: #d49d6a; }
-
-.orange-3 {
-  color: #804815; }
-
-.orange-4 {
-  color: #552900; }
-
-/**===========================================================================
 	STANDARD CLASSES - NOT NEEDED
 ===========================================================================**/
+/**===========================================================================
+   FONT VARIABLES
+===========================================================================**/
+/**===========================================================================
+   COLOR VARIABLES
+===========================================================================**/
+/* Blues */
+/*  Yellows */
+/* Tan/orange */
 /*===========================================================================================
 	LAYOUT
 ===========================================================================================*/
@@ -61,7 +19,7 @@ body {
   color: #FFF2AA; }
 
 .container {
-  max-width: 1000px;
+  max-width: 1140px;
   margin: 0 auto;
   width: 100%;
   min-height: 100px; }
@@ -154,6 +112,45 @@ ul li {
 
 .hidden {
   display: none; }
+
+/**===========================================================================
+	PAGE SETUP
+===========================================================================**/
+* {
+  margin: 0;
+  padding: 0; }
+
+header h1 {
+  text-align: center; }
+
+section.block {
+  padding: 25px 0; }
+section a {
+  color: #d4c46a; }
+section.odd {
+  background: #2f4073; }
+  section.odd .text {
+    float: left; }
+  section.odd .code {
+    float: right;
+    text-align: left; }
+    section.odd .code pre {
+      border-radius: 4px;
+      box-shadow: inset 0px 0px 10px #554800;
+      background: #806f15;
+      width: 100%; }
+section.even {
+  background: #7986ac; }
+  section.even .text {
+    float: right;
+    text-align: right; }
+  section.even .code {
+    float: left; }
+    section.even .code pre {
+      border-radius: 4px;
+      box-shadow: inset 0px 0px 10px #554800;
+      background: #806f15;
+      width: 100%; }
 
 /**===========================================================================
 	SELECT_IT
