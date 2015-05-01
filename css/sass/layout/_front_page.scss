@@ -1,0 +1,30 @@
+/**===========================================================================
+	PAGE SETUP
+===========================================================================**/
+section.block { padding: 35px 0; min-height: 300px; }
+section.block {
+	&.odd { background: $teal3; color: $green1; }
+	&.odd {
+		a { color: $green1; }
+		.text { float: left; }
+		.code { float: right; text-align: left; }
+		.code pre {
+			border-radius: 4px;
+			box-shadow: inset 0px 0px 10px $yellow_4;
+			background: $yellow_3;
+			width: 100%;
+		}
+	}
+	&.even { background: $teal2; color: $green1; }
+	&.even {
+		a { color: $green1; }
+		.text { float: right; text-align: right; }
+		.code { float: left; }
+		.code pre {
+			border-radius: 4px;
+			box-shadow: inset 0px 0px 10px $yellow_4;
+			background: $yellow_3;
+			width: 100%;
+		}
+	}
+}
