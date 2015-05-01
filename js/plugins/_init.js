@@ -12,7 +12,7 @@ $(function(){
 			$('body').addClass('menu_open');
 		}
 	});
-	$('.menu_close').click(function() {	
+	$('.menu_close').click(function() {
 		$(this).removeClass('open');
 		$('.slide_menu').removeClass('open');
 		$('body').removeClass('menu_open');
