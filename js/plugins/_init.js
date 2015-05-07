@@ -59,6 +59,44 @@ $(function(){
 		});
 	});
 
+/*===========================================================================================
+	PLUGINS
+===========================================================================================*/
+
 	$('select').select_it();
+
+	$('input[type=checkbox]').check_it();
+	
+	$('#google-map').google_map_it({
+		locations: [
+			{ lat: '41.6706', lng: '-71.2783', title: 'Title' }
+		]
+	});
+
+	$('.social_share').share_it({
+		buttons: [
+			{
+				button_type: 'email',
+				button_html: '<span class="icon">&#xf003;</span>'
+
+			},{
+				button_type: 'facebook',
+				button_html: '<span class="icon">&#xf09a;</span>'
+
+			},{
+				button_type: 'twitter',
+				button_html: '<span class="icon">&#xf099;</span>'
+			},{
+				button_type: 'google_plusone_share',
+				button_html: '<span class="icon">&#xf0d5;</span>'
+			},{
+				button_type: 'linkedin',
+				button_html: '<span class="icon">&#xf0e1;</span>'
+			},{
+				button_type: 'compact',
+				button_html: '<span class="icon">&#xf067;</span>'
+			}
+		]
+	});
 
 });
