@@ -2,16 +2,17 @@
 	LAYOUT
 ===========================================================================================*/
 * { @include box-sizing($box-model: border-box); -webkit-font-smoothing: antialiased; }
-body { font-size: 16px; line-height: 1em; font-family: $text; color: $body_text; padding: 70px 0 0; background: $light_black; }
+body { font-size: 16px; line-height: 1em; font-family: $text; color: $white; background: $green; padding: 70px 0 0; }
+code, pre { font-size: .9em; padding: 1em; }
 .chromeframe { text-align: center; padding: 10px 0; }
-.container { max-width: 1200px; margin: 0 auto; width: 100%; }
+.container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 1em; }
 .content {
-	h1 { @include font( 2em, 1.2em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
-	h2 { @include font( 1.8em, 1em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
-	h3 { @include font( 1.6em, 1em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
-	h4 { @include font( 1.4em, 1em, $os, $osb, $osi, $osib ); margin: 0 0 1em;}
-	h5 { @include font( 1.2em, 1em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
-	h6 { @include font( 1em, 1em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
+	h1 { @include font( 2em, 1.2em, $a, $ab, $ai, $aib ); margin: 0 0 1em; }
+	h2 { @include font( 1.8em, 1em, $a, $ab, $ai, $aib ); margin: 0 0 1em; }
+	h3 { @include font( 1.6em, 1em, $a, $ab, $ai, $aib ); margin: 0 0 1em; }
+	h4 { @include font( 1.4em, 1em, $a, $ab, $ai, $aib ); margin: 0 0 1em;}
+	h5 { @include font( 1.2em, 1em, $a, $ab, $ai, $aib ); margin: 0 0 1em; }
+	h6 { @include font( 1em, 1em, $a, $ab, $ai, $aib ); margin: 0 0 1em; }
 	hr { height: 1px; border: none; background: #c2c2c2; max-width: 300px; margin: 0 auto; box-shadow: 0px 0px 1px #ededed; }
 	hr.space { margin: 20px 0 30px; }
 	hr.center_space { margin: 20px auto 30px; }
@@ -43,7 +44,7 @@ body { font-size: 16px; line-height: 1em; font-family: $text; color: $body_text;
 	ul li { @include font( 1em, 1.25em, $os, $osb, $osi, $osib ); margin: 0 0 1em; }
 	ul li ul  { margin: 0 0 0 25px; }
 	a { color: $black; &:hover, &:active { color: $body_text; } }
-	.button, a.button { color: $white; margin: 0 0 1em; }
+	.button, a.button { margin: 0 0 1em; }
 	.button, a.button { &.right { @include bp(max-640) { float: none; display: block; margin: 0 auto; } } }
 	&.left { padding: 1em 2%; @include bp(640) { padding: 1% 5% 1% 0; } }
 	&.right { padding: 1em 2%; @include bp(640) { padding: 1% 0 1% 5%; } }
@@ -60,48 +61,38 @@ body { font-size: 16px; line-height: 1em; font-family: $text; color: $body_text;
 }
 .button {
 	text-align: center;
-	color: $white;
-	font: 18px/18px 'museo_sans700', sans-serif;
-	padding: 15px 20px;
-	box-sizing: border-box;
-	background: $black;
-	text-transform: uppercase;
+	color: $green1;
+	border-radius: 4px;
+	font: 1.2em/1.2em $osb;
+	padding: 1em 2em;
+	background: $green2;
 	border: none;
+	box-shadow: inset 0px 0px 15px $green1;
+	@include box-sizing( $box-model: border-box );
 	@include inline_block;
 	@include vendorize( transition, all 0.17s ease-in-out);
+	&:hover { background: $green3; color: $green2; };
 }
-/*
-.button {
-	text-align: center;
-	border-radius: 0;
-	border: 5px solid $white;
-	padding: 14px 25px;
-	color: $white;
-	background-color: $black;
-	background: rgba(0, 0, 0, 0.6);
-	text-transform: uppercase;
-	@include vendorize( transition, all .15s ease-in );
-	&:hover { color: $white; }
-}
-*/
 .gray_bg { background: #f5f5f5; }
 .dark_bg { background: $light_black; color: $white; }
 .icon { font-family: $fa; }
 .select_it {
-	width: 36%; float: left; position: relative;
-	.select_it_box {
-		width: 100%; float: left;
-		.displayed { cursor: pointer; text-align: left; display: block; background: $white; padding: 14px 15px; border-radius: 8px; width: 100%; color: $black; font: 18px/18px $text; text-transform: uppercase; }
-		&.open .displayed { border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; }
-		&.open .tab:after { content: "\f106";  }
+	position: relative; width: 100%; float: left;
+	.display {
+		width: 100%; float: left; position: relative; z-index: 9999; outline: none; display: block; background: $white; padding: 10px 30px; box-shadow: inset 1px 1px 2px $shadow; border-radius: 4px; border: 1px solid #CCCCCC; @include vendorize( transition, all .15s ease );
+		//&:focus { box-shadow: inset 0px 0px 5px $black; }
+		.current_item { display: block; cursor: pointer; text-align: left; color: $black; font: normal 11px/20px $text; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+		&.open { border-radius: 4px 4px 0 0; box-shadow: inset 0px 0px 10px #c9c9c9; }
+		&.open .current_item { border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; }
+		&.open .tab:after { content: "\f0d8";  }
 	}
 	.tab {
-		position: absolute; width: 24px; top: 16px; right: 5px; bottom: 10px; color: $black;
-		&:after { content: "\f107"; font: 32px/16px 'FontAwesome'; }
+		position: absolute; width: 5%; top: 0; right: 0; bottom: 0; color: #c9c9c9; min-width: 26px;
+		&:after { content: "\f0d7"; position: absolute; top: 0; text-align: center; bottom: 0; right: 0; left: 0; font: 1.2em/2.2em $fa; @include vendorize(transition, all .1s ease ); }
 	}
-	ul { background: $white; width: 100%; position: absolute; top: 99%; z-index: 9999; float: left; padding: 10px 0; max-height: 150px; border-left: 1px solid $gray; border-right: 1px solid $gray; border-bottom: 1px solid $gray; box-sizing: border-box; overflow-y: scroll; }
-	li {
-		cursor: pointer; width: 100%; box-sizing: border-box; padding: 5px 7%; float: left; list-style: none outside; display: block; font: 12px/12px $text; color: $white;
+	ul { margin: 0; background: $white; width: 100%; position: absolute; top: 99%; z-index: 9998; float: left; padding: 10px 0; max-height: 150px; box-shadow: 0px 7px 15px -7px $shadow; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC;  border-bottom: 1px solid #CCCCCC;  @include box-sizing( $box-model: border-box ); overflow-y: scroll; overflow-x: hidden; }
+	ul li {
+		cursor: pointer; width: 100%; box-sizing: border-box; padding: 5px 7%; float: left; list-style: none outside; display: block; font: normal 11px/20px $text; color: $black; margin: 0;
 		&:hover, &.selected { color: $white; background: $light_black; }
 	}
 }
@@ -124,26 +115,35 @@ body { font-size: 16px; line-height: 1em; font-family: $text; color: $body_text;
 	.unchecked { position: absolute; display: block; }
 }
 body.menu_open {
-	right: 240px;
 	position: fixed;
 	width: 88%;
 }
-.slide_menu { display: none; }
-.slide_menu.open {
+.slide_menu {
 	display: block;
 	position: fixed;
 	top: 0;
 	height: 100%;
-	right: 0;
+	right: -100%;
 	left: auto;
 	z-index: 999999;
-	width: 240px;
-	padding: 10px 15px;
+	padding: 1.5em 0;
 	overflow-x: none;
 	overflow-y: auto;
-	background: #515e68;
-	color: $white;
+	background: $green1;
+	color: $green4;
+	@include bp(768) { width: 22%; }
 }
+.slide_menu {
+	.menu_close { position: absolute; right: 0; top: 0; padding: .5em .35em; font-size: 1.6em; text-shadow: 1px 1px 1px $green5; cursor: pointer; }
+	h3 { padding: .5em 1em; text-shadow: 1px 1px 0px $green1, 2px 2px 0px $green3; }
+	ul { list-style: none outside; margin: 0; }
+	ul li { padding: .5em 1em; margin: 0; border-bottom: 1px solid $green5; @include vendorize( transition, all .15s ease ); }
+	ul li:first-child { border-top: 1px solid $green5; }
+	ul li a { display: block; color: $green5; }
+	ul li:hover { background: $green4; color: $green2; box-shadow: inset 1px 1px 10px $green2; }
+	ul li:hover a { color: $green1; }
+}
+
 /*===========================================================================================
 	MEDIA CLASSES
 ===========================================================================================*/
@@ -182,15 +182,21 @@ body.menu_open {
 			padding: 10px 30px;
 			vertical-align: middle;
 			margin: 0;
+			color: $light_black;
 			font: normal 11px/20px $text;
-			box-shadow: 0px 0px 5px $shadow;
-			&:focus { outline: none; box-shadow: 0px 0px 5px $light_black; }
+			box-shadow: inset 1px 1px 2px $shadow;
+			border-radius: 4px;
+			border: 1px solid #CCCCCC;
+			@include placeholder { color: $light_black; }
+			&:focus { outline: none; box-shadow: inset 0px 0px 5px $light_black; border: 1px solid $light_black; }
 		}
 		textarea { resize: none; }
 		&.omit label { position: relative; top: auto; left: auto; height: auto; }
 	}
 	.thirds { width: 100%; float: left; }
 	.thirds .block { width: 31%; margin: 0 1%; }
+	.left.half { padding: 0 1% 0 0; }
+	.right.half { padding: 0 0 0 1%; }
 }
 div.wpcf7-validation-errors { border: 2px solid #f7e700; width: 50%; float: left; margin: 0 25%; text-align: center; padding: 10px 0; min-width: 320px; }
 span.wpcf7-not-valid-tip { color: #f00; font-size: 1em; display: block; width: 100%; float: left; position: absolute; right: 0; text-align: right; padding: 5px 0 0; }
@@ -200,8 +206,17 @@ div.wpcf7-mail-sent-ok { border: 2px solid #398f14; width: 50%; float: left; mar
 ===========================================================================================*/
 section { padding: 25px 0; @include bp(640) { padding: 2% 0; } }
 section.block .container { @include bp(max-1200) { padding: 0 1.5%; } }
-.block { width: 100%; float: left; }
 .block {
+	width: 100%;
+	float: left;
+	&.inline_block {
+		text-align: center;
+		.sixth, .fifth, .quarter, .two_sixths, .third, .two_fifths, .three_sixths, .half, .three_fifths, .four_sixths, .two_third, .three_quarters, .four_fifths, .five_sixths {
+			float: none;
+			@include inline-block;
+			.text { text-align: left; }
+		}
+	}
 	&.left {
 		.sixth, .fifth, .quarter, .two_sixths, .third, .two_fifths, .three_sixths, .half, .three_fifths, .four_sixths, .two_third, .three_quarters, .four_fifths, .five_sixths { float: left; }
 	}
@@ -216,14 +231,6 @@ section.block .container { @include bp(max-1200) { padding: 0 1.5%; } }
 	.sixth, .fifth, .quarter, .two_sixths, .third, .two_fifths, .three_sixths, .half, .three_fifths, .four_sixths, .two_third, .three_quarters, .four_fifths, .five_sixths {
 		&.left { float: left; }
 		&.right { float: right; }
-	}
-	&.inline_block {
-		text-align: center;
-		.sixth, .fifth, .quarter, .two_sixths, .third, .two_fifths, .three_sixths, .half, .three_fifths, .four_sixths, .two_third, .three_quarters, .four_fifths, .five_sixths {
-			float: none;
-			@include inline-block;
-			.text { text-align: left; }
-		}
 	}
 	.sixth { width: 100%; @include bp(640) { width: 16%; } }
 	.fifth { width: 100%; @include bp(640) { width: 20%; } }

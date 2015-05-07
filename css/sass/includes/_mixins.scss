@@ -45,9 +45,9 @@
 
 @mixin font( $font_size, $line_height, $base, $bold: $base, $italic: $base, $bolditalic: $base, $fallback: $text ) {
 	font: normal #{$font_size}/#{$line_height} $base, $fallback;
-	strong { font: normal #{$font_size}/#{$line_height} $bold, $fallback; }
-	em { font: normal #{$font_size}/#{$line_height} $italic, $fallback; }
-	strong em, em strong { font: normal #{$font_size}/#{$line_height} $bolditalic, $fallback; }
+	strong { font: normal #{1em}/#{1em} $bold, $fallback; }
+	em { font: normal #{1em}/#{1em} $italic, $fallback; }
+	strong em, em strong { font: normal #{1em}/#{1em} $bolditalic, $fallback; }
 }
 @mixin placeholder {
 	&::-webkit-input-placeholder { @content; }
