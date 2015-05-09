@@ -4,14 +4,22 @@ $(function(){
 	var current_body;
 	var current_remainder;
 	var window_width = $(window).outerWidth(true);
-	current_body = parseInt(window_width)*0.75;
-	current_remainder = parseInt(window_width)*0.25;
-	console.log(current_body+' '+current_remainder);
-	$(window).resize(function() {
-		window_width = $(window).outerWidth(true);
+	if( window_width > 640 ) {
 		current_body = parseInt(window_width)*0.75;
 		current_remainder = parseInt(window_width)*0.25;
-		console.log(current_body+' '+current_remainder);
+	} else {
+		current_body = parseInt(window_width)*0.25;
+		current_remainder = parseInt(window_width)*0.75;
+	}
+	$(window).resize(function() {
+		window_width = $(window).outerWidth(true);
+		if( window_width > 640 ) {
+			current_body = parseInt(window_width)*0.75;
+			current_remainder = parseInt(window_width)*0.25;
+		} else {
+			current_body = parseInt(window_width)*0.25;
+			current_remainder = parseInt(window_width)*0.75;
+		}
 	});
 	$('.menu_toggle').click(function() {
 		if( $(this).hasClass('open') ) {
