@@ -1,0 +1,19 @@
+.awssld__controls__arrow-left:before,
+.awssld__controls__arrow-left:after,
+.awssld__controls__arrow-right:before,
+.awssld__controls__arrow-right:after {
+    background-color: white;
+}
+
+.banner {
+    .slide-message {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

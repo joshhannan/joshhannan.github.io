@@ -1,22 +1,38 @@
+import './App.scss'
+
 import Header from './layout/header'
 import Main from './layout/main'
-import Banner from './components/banner'
-import Intro from './components/intro'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 import Footer from './layout/footer'
-import './App.css'
+
+import Home from './pages/home'
+import About from './pages/about'
+import Contact from './pages/contact'
+import Blog from './pages/blog'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main>
-        <Banner />
-        <Intro
-          title="Intro Title"
-          content="Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam."
-        />
-      </Main>
-      <Footer />
+      <Router>
+        <Header />
+        <Main>
+          <Switch>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/Blog" component={Blog} />
+          </Switch>
+        </Main>
+        <Footer />
+      </Router>
     </div>
   );
 }

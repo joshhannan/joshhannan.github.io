@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default (props) => {
+const Intro = (props) => {
     return (
         <section>
             <div className="section-title">
@@ -12,3 +12,5 @@ export default (props) => {
         </section>
     )
 }
+
+export default Intro

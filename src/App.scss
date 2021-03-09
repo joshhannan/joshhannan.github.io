@@ -1,0 +1,49 @@
+body {
+  box-sizing: border-box;
+}
+body * {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.site-logo {
+  width: 16vmax;
+  height: 6vmax;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.site-logo img {
+  max-width: 8vmax;
+}
+.site-logo span {
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-logo img {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-main {
+  min-height: 84vh;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
